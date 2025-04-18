@@ -13,7 +13,14 @@
       <link>https://henry43171.github.io/posts/hello-world/</link>
       <pubDate>Fri, 18 Apr 2025 15:46:27 +0800</pubDate>
       <guid>https://henry43171.github.io/posts/hello-world/</guid>
-      <description>&lt;h1 id=&#34;第一篇文章&#34;&gt;第一篇文章&lt;/h1&gt;&#xA;&lt;p&gt;大家好，這是我的第一篇文章，希望可以幫助到大家&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;第一篇文章&#34;&gt;第一篇文章&lt;/h1&gt;&#xA;&lt;p&gt;大家好，這是我的第一篇文章，希望可以幫助到大家。&#xA;第一次寫文章想要記錄學習內容。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>第二篇文章</title>
+      <link>https://henry43171.github.io/posts/second/</link>
+      <pubDate>Fri, 18 Apr 2025 15:46:27 +0800</pubDate>
+      <guid>https://henry43171.github.io/posts/second/</guid>
+      <description>&lt;h2 id=&#34;小標題&#34;&gt;小標題&lt;/h2&gt;&#xA;&lt;p&gt;測試用，看看效果&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
