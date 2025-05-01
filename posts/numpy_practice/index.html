@@ -11,7 +11,7 @@
   style="--bg:#faf8f1"
   lang="zh-tw"
   dir="ltr"
-><head>
+><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta
@@ -56,10 +56,10 @@ print(&#34;lista = &#34;, lista) # lista =  [1, 2, 3]
 print(&#34;lista*2 = &#34;, lista*2) # lista*2 =  [1, 2, 3, 1, 2, 3]
 廣播(Broadcasting)
 在 NumPy 中，大多數的運算都是「逐元素運算」（element-wise operation）。" />
-  <meta name="author" content="Henry 的筆記本" /><link rel="preload stylesheet" as="style" href="https://henry43171.github.io/main.min.css" />
+  <meta name="author" content="Henry 的筆記本" /><link rel="preload stylesheet" as="style" href="http://localhost:1313/main.min.css" />
 
   
-  <link rel="preload" as="image" href="https://henry43171.github.io/theme.png" />
+  <link rel="preload" as="image" href="http://localhost:1313/theme.png" />
 
   
 
@@ -67,46 +67,21 @@ print(&#34;lista*2 = &#34;, lista*2) # lista*2 =  [1, 2, 3, 1, 2, 3]
 
   <script
     defer
-    src="https://henry43171.github.io/highlight.min.js"
+    src="http://localhost:1313/highlight.min.js"
     onload="hljs.initHighlightingOnLoad();"
   ></script>
 
   
   <link
     rel="icon"
-    href="https://henry43171.github.io/favicon.ico"
+    href="http://localhost:1313/favicon.ico"
   />
   <link
     rel="apple-touch-icon"
-    href="https://henry43171.github.io/apple-touch-icon.png"
+    href="http://localhost:1313/apple-touch-icon.png"
   />
 
   <meta name="generator" content="Hugo 0.146.5">
-  <meta itemprop="name" content="Numpy 練習紀錄">
-  <meta itemprop="description" content="Numpy 練習紀錄 基本運算 可以用 numpy 來進行一些基本運算，NumPy 的陣列運算是「元素對元素」的操作（element-wise），包含加減乘除、根號、次方等等。
-import numpy as np# 基本運算import numpy as npa = np.array([1, 4, 9])b = np.array([4, 5, 6])print(&#34;\n numpy array a=&#34;, a)print(&#34;\n numpy array b=&#34;, b)print(&#34;\n加法\na&#43;b=&#34;, a&#43;b)print(&#34;\n減法\na-b=&#34;, a-b)print(&#34;\n乘法\na*b=&#34;, a*b)print(&#34;\n除法\na/b=&#34;, a/b)print(&#34;\n根號\na=&#34;, np.sqrt(a))print(&#34;\n倍數\nb*2=&#34;, b*2)print(&#34;\n次方\nb**2=&#34;, b**2) numpy array 和 list 的差別，numpy如果乘2，會把各個元素逐一乘2；list如果乘2，會將整個list複製一份。
-import numpy as np# 和 list 比較print(&#34;\n&#34;&#43;&#34;---&#34;*30)lista = [1, 2, 3]print(&#34;lista = &#34;, lista) # lista = [1, 2, 3]print(&#34;lista*2 = &#34;, lista*2) # lista*2 = [1, 2, 3, 1, 2, 3] 廣播(Broadcasting) 在 NumPy 中，大多數的運算都是「逐元素運算」（element-wise operation）。">
-  <meta itemprop="datePublished" content="2025-04-23T14:46:27+08:00">
-  <meta itemprop="dateModified" content="2025-04-23T14:46:27+08:00">
-  <meta itemprop="wordCount" content="494"><meta property="og:url" content="https://henry43171.github.io/posts/numpy_practice/">
-  <meta property="og:site_name" content="Henry 的筆記本">
-  <meta property="og:title" content="Numpy 練習紀錄">
-  <meta property="og:description" content="Numpy 練習紀錄 基本運算 可以用 numpy 來進行一些基本運算，NumPy 的陣列運算是「元素對元素」的操作（element-wise），包含加減乘除、根號、次方等等。
-import numpy as np# 基本運算import numpy as npa = np.array([1, 4, 9])b = np.array([4, 5, 6])print(&#34;\n numpy array a=&#34;, a)print(&#34;\n numpy array b=&#34;, b)print(&#34;\n加法\na&#43;b=&#34;, a&#43;b)print(&#34;\n減法\na-b=&#34;, a-b)print(&#34;\n乘法\na*b=&#34;, a*b)print(&#34;\n除法\na/b=&#34;, a/b)print(&#34;\n根號\na=&#34;, np.sqrt(a))print(&#34;\n倍數\nb*2=&#34;, b*2)print(&#34;\n次方\nb**2=&#34;, b**2) numpy array 和 list 的差別，numpy如果乘2，會把各個元素逐一乘2；list如果乘2，會將整個list複製一份。
-import numpy as np# 和 list 比較print(&#34;\n&#34;&#43;&#34;---&#34;*30)lista = [1, 2, 3]print(&#34;lista = &#34;, lista) # lista = [1, 2, 3]print(&#34;lista*2 = &#34;, lista*2) # lista*2 = [1, 2, 3, 1, 2, 3] 廣播(Broadcasting) 在 NumPy 中，大多數的運算都是「逐元素運算」（element-wise operation）。">
-  <meta property="og:locale" content="zh_tw">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-04-23T14:46:27+08:00">
-    <meta property="article:modified_time" content="2025-04-23T14:46:27+08:00">
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Numpy 練習紀錄">
-  <meta name="twitter:description" content="Numpy 練習紀錄 基本運算 可以用 numpy 來進行一些基本運算，NumPy 的陣列運算是「元素對元素」的操作（element-wise），包含加減乘除、根號、次方等等。
-import numpy as np# 基本運算import numpy as npa = np.array([1, 4, 9])b = np.array([4, 5, 6])print(&#34;\n numpy array a=&#34;, a)print(&#34;\n numpy array b=&#34;, b)print(&#34;\n加法\na&#43;b=&#34;, a&#43;b)print(&#34;\n減法\na-b=&#34;, a-b)print(&#34;\n乘法\na*b=&#34;, a*b)print(&#34;\n除法\na/b=&#34;, a/b)print(&#34;\n根號\na=&#34;, np.sqrt(a))print(&#34;\n倍數\nb*2=&#34;, b*2)print(&#34;\n次方\nb**2=&#34;, b**2) numpy array 和 list 的差別，numpy如果乘2，會把各個元素逐一乘2；list如果乘2，會將整個list複製一份。
-import numpy as np# 和 list 比較print(&#34;\n&#34;&#43;&#34;---&#34;*30)lista = [1, 2, 3]print(&#34;lista = &#34;, lista) # lista = [1, 2, 3]print(&#34;lista*2 = &#34;, lista*2) # lista*2 = [1, 2, 3, 1, 2, 3] 廣播(Broadcasting) 在 NumPy 中，大多數的運算都是「逐元素運算」（element-wise operation）。">
-
-  <link rel="canonical" href="https://henry43171.github.io/posts/numpy_practice/" />
 </head>
 <body
     class="bg-(--bg) text-black antialiased duration-200 ease-out [-webkit-tap-highlight-color:transparent] dark:text-white"
@@ -116,7 +91,7 @@ import numpy as np# 和 list 比較print(&#34;\n&#34;&#43;&#34;---&#34;*30)li
   <div class="relative z-50 flex items-center ltr:mr-auto rtl:ml-auto">
     <a
       class="-translate-y-[1px] text-2xl font-medium"
-      href="https://henry43171.github.io/"
+      href="http://localhost:1313/"
       >Henry 的筆記本</a
     >
     <div
@@ -372,13 +347,120 @@ plt.tight_layout()
 plt.show()
 </code></pre><p><img src="dice.png" alt="圖表：兩顆骰子點數和的分布"></p>
 <p>如果擲骰子的次數較少，點數的分布會有比較分散、不穩定的明顯偏差；隨著投擲次數的增加，分布會逐漸趨近理論上的平均，也就是類似鐘形曲線的樣子。</p>
+<h3 id="成績分布模擬">成績分布模擬</h3>
+<p>這個練習的目標是模擬學生成績分布，並觀察成績的分布情況。</p>
+<p>練習目標</p>
+<ul>
+<li>使用宣告的方式輸入20個隨機生成的學生成績。</li>
+<li>使用 matplotlib 繪製學生成績的直方圖。</li>
+</ul>
+<pre tabindex="0"><code>import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
+
+# 宣告學生姓名與成績
+students_scores = {
+    &#34;Alice&#34;: 88, &#34;Ben&#34;: 92, &#34;Cathy&#34;: 79, &#34;David&#34;: 85, &#34;Ella&#34;: 95,
+    &#34;Frank&#34;: 68, &#34;Grace&#34;: 74, &#34;Henry&#34;: 91, &#34;Ivy&#34;: 84, &#34;Jack&#34;: 77,
+    &#34;Kathy&#34;: 81, &#34;Leo&#34;: 90, &#34;Mia&#34;: 31, &#34;Nina&#34;: 85, &#34;Oscar&#34;: 89,
+    &#34;Paul&#34;: 78, &#34;Queen&#34;: 88, &#34;Ryan&#34;: 95, &#34;Sara&#34;: 32, &#34;Tom&#34;: 28
+}
+
+# 抽取成績列表做統計
+scores = list(students_scores.values())
+print(&#34;All scores:&#34;, scores)
+
+# 計算統計數據
+mean_score = np.mean(scores)
+std_score = np.std(scores)
+min_score = np.min(scores)
+max_score = np.max(scores)
+
+# 輸出統計信息
+print(f&#34;mean_score: {mean_score:.2f}&#34;)
+print(f&#34;std_score: {std_score:.2f}&#34;)
+print(f&#34;min_score: {min_score}&#34;)
+print(f&#34;max_score: {max_score}&#34;)
+
+# 繪製成績分布圖(直方圖)
+def bar_visualize(bins, color, edgecolor, title):
+    &#34;&#34;&#34;
+    繪製學生成績的直方圖，並將圖表儲存為 PNG 圖片。
+
+    參數:
+    - bins (int 或 array-like): 直方圖的區間數或邊界。
+    - color (str): 直方圖柱子的顏色。
+    - edgecolor (str): 柱子邊框的顏色。
+    - title (str): 圖表標題，也會用來命名輸出的圖片檔案。
+    &#34;&#34;&#34;
+    plt.hist(scores, bins=bins, color=color, edgecolor=edgecolor)
+    plt.xlabel(&#34;Score&#34;)
+    plt.ylabel(&#34;Number of Students&#34;)
+    plt.title(title)
+    plt.grid(axis=&#39;y&#39;, linestyle=&#39;--&#39;, alpha=0.7)
+    plt.gca().yaxis.set_major_locator(ticker.MaxNLocator(integer=True))
+    plt.tight_layout()
+    plt.savefig(f&#34;{title}.png&#34;)
+    plt.show()
+
+bar_visualize(bins = 10, 
+              color = &#39;pink&#39;,
+              edgecolor = &#39;black&#39;,
+              title = &#34;Distribution of Student Scores v1&#34;)
+
+bar_visualize(bins = np.arange(0, 101, 5), 
+              color = &#39;skyblue&#39;,
+              edgecolor = &#39;black&#39;,
+              title = &#34;Distribution of Student Scores v2&#34;)
+</code></pre><p>如果 Y 軸沒有特別設定的話，有可能會出現顯示成浮點數的情況，不想要顯示浮點數的話，可以加上 <code>ticker</code>，讓他強制使用整數</p>
+<p><img src="distribution_v0.png" alt="圖表：成績分布圖v0"></p>
+<pre tabindex="0"><code>import matplotlib.ticker as ticker
+
+def bar_visualize(bins, color, edgecolor, title):
+    &#34;&#34;&#34;
+    pass
+    &#34;&#34;&#34;
+    plt.gca().yaxis.set_major_locator(ticker.MaxNLocator(integer=True))
+</code></pre><pre tabindex="0"><code># 完整的繪圖程式碼
+
+import numpy as np
+import matplotlib.pyplot as plt
+# import matplotlib.ticker as ticker
+
+def bar_visualize(bins, color, edgecolor, title):
+    plt.hist(scores, bins=bins, color=color, edgecolor=edgecolor)
+    plt.xlabel(&#34;Score&#34;)
+    plt.ylabel(&#34;Number of Students&#34;)
+    plt.title(title)
+    plt.grid(axis=&#39;y&#39;, linestyle=&#39;--&#39;, alpha=0.7)
+    # plt.gca().yaxis.set_major_locator(ticker.MaxNLocator(integer=True))
+    plt.tight_layout()
+    plt.savefig(f&#34;{title}.png&#34;)
+    plt.show()
+
+bar_visualize(bins = 10, 
+              color = &#39;grey&#39;,
+              edgecolor = &#39;black&#39;,
+              title = &#34;Distribution of Student Scores v0&#34;)
+</code></pre><p>另外需要特別注意圖表的部分，如果 <code>bin</code> 沒有特別指定，他會依據數值的區間來自動化分，所以對齊的時候看起來會不太整齊。</p>
+<pre tabindex="0"><code>bar_visualize(bins = 10, 
+              color = &#39;pink&#39;,
+              edgecolor = &#39;black&#39;,
+              title = &#34;Distribution of Student Scores v1&#34;)
+</code></pre><p><img src="distribution_v1.png" alt="圖表：成績分布圖v1"></p>
+<p>為了解決這個狀況，可以手動指定 <code>bin</code> 的區間，讓他強制對齊，例如指定從 0 ~ 101，以5為間隔進行對齊。</p>
+<pre tabindex="0"><code>bar_visualize(bins = np.arange(0, 101, 5), 
+              color = &#39;skyblue&#39;,
+              edgecolor = &#39;black&#39;,
+              title = &#34;Distribution of Student Scores v2&#34;)
+</code></pre><p><img src="distribution_v2.png" alt="圖表：成績分布圖v2"></p>
 </section>
 
   </article></main><footer
   class="mx-auto flex h-[4.5rem] max-w-(--w) items-center px-8 text-xs tracking-wider uppercase opacity-60"
 >
   <div class="mr-auto">&copy;2025
-    <a class="link" href="https://henry43171.github.io/">Henry 的筆記本</a></div>
+    <a class="link" href="http://localhost:1313/">Henry 的筆記本</a></div>
   <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
     >powered by hugo️️</a
   >️
