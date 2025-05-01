@@ -88,7 +88,7 @@ import numpy as np# 基本運算import numpy as npa = np.array([1, 4, 9])b =
 import numpy as np# 和 list 比較print(&#34;\n&#34;&#43;&#34;---&#34;*30)lista = [1, 2, 3]print(&#34;lista = &#34;, lista) # lista = [1, 2, 3]print(&#34;lista*2 = &#34;, lista*2) # lista*2 = [1, 2, 3, 1, 2, 3] 廣播(Broadcasting) 在 NumPy 中，大多數的運算都是「逐元素運算」（element-wise operation）。">
   <meta itemprop="datePublished" content="2025-04-23T14:46:27+08:00">
   <meta itemprop="dateModified" content="2025-04-23T14:46:27+08:00">
-  <meta itemprop="wordCount" content="785"><meta property="og:url" content="https://henry43171.github.io/posts/numpy_practice/">
+  <meta itemprop="wordCount" content="795"><meta property="og:url" content="https://henry43171.github.io/posts/numpy_practice/">
   <meta property="og:site_name" content="Henry 的筆記本">
   <meta property="og:title" content="Numpy 練習紀錄">
   <meta property="og:description" content="Numpy 練習紀錄 基本運算 可以用 numpy 來進行一些基本運算，NumPy 的陣列運算是「元素對元素」的操作（element-wise），包含加減乘除、根號、次方等等。
@@ -437,8 +437,9 @@ bar_visualize(bins = np.arange(0, 101, 5),
               color = &#39;skyblue&#39;,
               edgecolor = &#39;black&#39;,
               title = &#34;Distribution of Student Scores v2&#34;)
-</code></pre><p>如果 Y 軸沒有特別設定的話，有可能會出現顯示成浮點數的情況，不想要顯示浮點數的話，可以加上 <code>ticker</code>，讓他強制使用整數</p>
-<p><img src="distribution_v0.png" alt="圖表：成績分布圖v0"></p>
+</code></pre><p>如果 Y 軸沒有特別設定的話，在 Y 軸上面有可能會出現顯示成浮點數的情況，但這邊的 Y 軸是學生人數，有浮點數很奇怪。</p>
+<p><img src="Distribution_v0_float.png" alt="圖表：成績分布圖v0_float"></p>
+<p>不想要顯示浮點數的話，可以加上 <code>ticker</code>，讓他強制使用整數。</p>
 <pre tabindex="0"><code>import matplotlib.ticker as ticker
 
 def bar_visualize(bins, color, edgecolor, title):
@@ -450,7 +451,7 @@ def bar_visualize(bins, color, edgecolor, title):
 
 import numpy as np
 import matplotlib.pyplot as plt
-# import matplotlib.ticker as ticker
+import matplotlib.ticker as ticker # 新增的部分
 
 def bar_visualize(bins, color, edgecolor, title):
     plt.hist(scores, bins=bins, color=color, edgecolor=edgecolor)
@@ -458,7 +459,7 @@ def bar_visualize(bins, color, edgecolor, title):
     plt.ylabel(&#34;Number of Students&#34;)
     plt.title(title)
     plt.grid(axis=&#39;y&#39;, linestyle=&#39;--&#39;, alpha=0.7)
-    # plt.gca().yaxis.set_major_locator(ticker.MaxNLocator(integer=True))
+    plt.gca().yaxis.set_major_locator(ticker.MaxNLocator(integer=True)) # 新增的部分
     plt.tight_layout()
     plt.savefig(f&#34;{title}.png&#34;)
     plt.show()
@@ -467,7 +468,9 @@ bar_visualize(bins = 10,
               color = &#39;grey&#39;,
               edgecolor = &#39;black&#39;,
               title = &#34;Distribution of Student Scores v0&#34;)
-</code></pre><p>另外需要特別注意圖表的部分，如果 <code>bin</code> 沒有特別指定，他會依據數值的區間來自動化分，所以對齊的時候看起來會不太整齊。</p>
+</code></pre><p>更新後的圖片， Y 軸就不會有浮點數了。</p>
+<p><img src="Distribution_v0_int.png" alt="圖表：成績分布圖v0_int"></p>
+<p>另外需要特別注意圖表的部分，如果 <code>bin</code> 沒有特別指定，他會依據數值的區間來自動化分，所以對齊的時候看起來會不太整齊。</p>
 <pre tabindex="0"><code>bar_visualize(bins = 10, 
               color = &#39;pink&#39;,
               edgecolor = &#39;black&#39;,
