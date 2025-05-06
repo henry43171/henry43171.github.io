@@ -1,0 +1,284 @@
+<!doctype html>
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg:#faf8f1"
+  lang="zh-tw"
+  dir="ltr"
+><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>Pandas 練習紀錄 - Henry 的筆記本</title>
+
+  
+  <meta name="theme-color" />
+
+  <meta name="description" content="Pandas 練習
+基本pandas語法練習，先宣告最基本的資料型態dataframe，這邊有刻意留一個None，方便後面檢查資料用。
+import pandas as pd
+
+data = {
+    &#34;Name&#34;: [&#34;Alice&#34;, &#34;Bob&#34;, &#34;Charlie&#34;],
+    &#34;Class&#34;: [&#34;Class A&#34;, &#34;Class B&#34;, &#34;Class A&#34;],
+    &#34;Math&#34;: [90, 85, 78],
+    &#34;English&#34;: [88, 92, 80],
+    &#34;Science&#34;: [85, 79, None]
+}
+建立 DataFrame 物件並印出全部資料，觀察整體格式與資料型別。
+df = pd.DataFrame(data)
+print(&#34;\nAll data:\n&#34;, df)
+
+&#34;&#34;&#34;
+All data:
+       Name    Class  Math  English  Science
+0    Alice  Class A    90       88     85.0
+1      Bob  Class B    85       92     79.0
+2  Charlie  Class A    78       80      NaN
+&#34;&#34;&#34;
+可以用不同的語法，來取得不同的資料格式，像是 df.shape，可以確認資料表的維度（列數、欄數）。" />
+  <meta name="author" content="Henry 的筆記本" /><link rel="preload stylesheet" as="style" href="https://henry43171.github.io/main.min.css" />
+
+  
+  <link rel="preload" as="image" href="https://henry43171.github.io/theme.png" />
+
+  
+
+  
+
+  <script
+    defer
+    src="https://henry43171.github.io/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+
+  
+  <link
+    rel="icon"
+    href="https://henry43171.github.io/favicon.ico"
+  />
+  <link
+    rel="apple-touch-icon"
+    href="https://henry43171.github.io/apple-touch-icon.png"
+  />
+
+  <meta name="generator" content="Hugo 0.146.5">
+  <meta itemprop="name" content="Pandas 練習紀錄">
+  <meta itemprop="description" content="Pandas 練習 基本pandas語法練習，先宣告最基本的資料型態dataframe，這邊有刻意留一個None，方便後面檢查資料用。
+import pandas as pddata = {&#34;Name&#34;: [&#34;Alice&#34;, &#34;Bob&#34;, &#34;Charlie&#34;],&#34;Class&#34;: [&#34;Class A&#34;, &#34;Class B&#34;, &#34;Class A&#34;],&#34;Math&#34;: [90, 85, 78],&#34;English&#34;: [88, 92, 80],&#34;Science&#34;: [85, 79, None]} 建立 DataFrame 物件並印出全部資料，觀察整體格式與資料型別。
+df = pd.DataFrame(data)print(&#34;\nAll data:\n&#34;, df)&#34;&#34;&#34;All data:Name Class Math English Science0 Alice Class A 90 88 85.01 Bob Class B 85 92 79.02 Charlie Class A 78 80 NaN&#34;&#34;&#34; 可以用不同的語法，來取得不同的資料格式，像是 df.shape，可以確認資料表的維度（列數、欄數）。">
+  <meta itemprop="datePublished" content="2025-05-06T15:07:00+08:00">
+  <meta itemprop="dateModified" content="2025-05-06T15:07:00+08:00">
+  <meta itemprop="wordCount" content="240"><meta property="og:url" content="https://henry43171.github.io/posts/pandas_practice/">
+  <meta property="og:site_name" content="Henry 的筆記本">
+  <meta property="og:title" content="Pandas 練習紀錄">
+  <meta property="og:description" content="Pandas 練習 基本pandas語法練習，先宣告最基本的資料型態dataframe，這邊有刻意留一個None，方便後面檢查資料用。
+import pandas as pddata = {&#34;Name&#34;: [&#34;Alice&#34;, &#34;Bob&#34;, &#34;Charlie&#34;],&#34;Class&#34;: [&#34;Class A&#34;, &#34;Class B&#34;, &#34;Class A&#34;],&#34;Math&#34;: [90, 85, 78],&#34;English&#34;: [88, 92, 80],&#34;Science&#34;: [85, 79, None]} 建立 DataFrame 物件並印出全部資料，觀察整體格式與資料型別。
+df = pd.DataFrame(data)print(&#34;\nAll data:\n&#34;, df)&#34;&#34;&#34;All data:Name Class Math English Science0 Alice Class A 90 88 85.01 Bob Class B 85 92 79.02 Charlie Class A 78 80 NaN&#34;&#34;&#34; 可以用不同的語法，來取得不同的資料格式，像是 df.shape，可以確認資料表的維度（列數、欄數）。">
+  <meta property="og:locale" content="zh_tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-05-06T15:07:00+08:00">
+    <meta property="article:modified_time" content="2025-05-06T15:07:00+08:00">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Pandas 練習紀錄">
+  <meta name="twitter:description" content="Pandas 練習 基本pandas語法練習，先宣告最基本的資料型態dataframe，這邊有刻意留一個None，方便後面檢查資料用。
+import pandas as pddata = {&#34;Name&#34;: [&#34;Alice&#34;, &#34;Bob&#34;, &#34;Charlie&#34;],&#34;Class&#34;: [&#34;Class A&#34;, &#34;Class B&#34;, &#34;Class A&#34;],&#34;Math&#34;: [90, 85, 78],&#34;English&#34;: [88, 92, 80],&#34;Science&#34;: [85, 79, None]} 建立 DataFrame 物件並印出全部資料，觀察整體格式與資料型別。
+df = pd.DataFrame(data)print(&#34;\nAll data:\n&#34;, df)&#34;&#34;&#34;All data:Name Class Math English Science0 Alice Class A 90 88 85.01 Bob Class B 85 92 79.02 Charlie Class A 78 80 NaN&#34;&#34;&#34; 可以用不同的語法，來取得不同的資料格式，像是 df.shape，可以確認資料表的維度（列數、欄數）。">
+
+  <link rel="canonical" href="https://henry43171.github.io/posts/pandas_practice/" />
+</head>
+<body
+    class="bg-(--bg) text-black antialiased duration-200 ease-out [-webkit-tap-highlight-color:transparent] dark:text-white"
+  ><header
+  class="mx-auto flex h-[4.5rem] max-w-(--w) px-8 whitespace-nowrap lg:justify-center"
+>
+  <div class="relative z-50 flex items-center ltr:mr-auto rtl:ml-auto">
+    <a
+      class="-translate-y-[1px] text-2xl font-medium"
+      href="https://henry43171.github.io/"
+      >Henry 的筆記本</a
+    >
+    <div
+      class="btn-dark text-[0px] ltr:ml-4 rtl:mr-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden ltr:-mr-8 rtl:-ml-8"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#faf8f1'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full flex-col justify-center bg-(--bg) pb-16 duration-200 select-none lg:static lg:h-auto lg:flex-row lg:bg-transparent! lg:pb-0 lg:transition-none"
+  >
+  </div>
+</header>
+<main
+      class="prose prose-neutral dark:prose-invert relative mx-auto min-h-[calc(100vh-9rem)] max-w-(--w) px-8 pt-14 pb-16"
+    ><article>
+  <header class="mb-14">
+    <h1 class="my-0! pb-2.5">Pandas 練習紀錄</h1><div class="text-xs antialiased opacity-60"><time>May 6, 2025</time></div></header>
+
+  <section><h1 id="pandas-練習">Pandas 練習</h1>
+<p>基本pandas語法練習，先宣告最基本的資料型態dataframe，這邊有刻意留一個None，方便後面檢查資料用。</p>
+<pre tabindex="0"><code>import pandas as pd
+
+data = {
+    &#34;Name&#34;: [&#34;Alice&#34;, &#34;Bob&#34;, &#34;Charlie&#34;],
+    &#34;Class&#34;: [&#34;Class A&#34;, &#34;Class B&#34;, &#34;Class A&#34;],
+    &#34;Math&#34;: [90, 85, 78],
+    &#34;English&#34;: [88, 92, 80],
+    &#34;Science&#34;: [85, 79, None]
+}
+</code></pre><p>建立 <code>DataFrame</code> 物件並印出全部資料，觀察整體格式與資料型別。</p>
+<pre tabindex="0"><code>df = pd.DataFrame(data)
+print(&#34;\nAll data:\n&#34;, df)
+
+&#34;&#34;&#34;
+All data:
+       Name    Class  Math  English  Science
+0    Alice  Class A    90       88     85.0
+1      Bob  Class B    85       92     79.0
+2  Charlie  Class A    78       80      NaN
+&#34;&#34;&#34;
+</code></pre><p>可以用不同的語法，來取得不同的資料格式，像是 <code>df.shape</code>，可以確認資料表的維度（列數、欄數）。</p>
+<pre tabindex="0"><code>print(&#34;\nData shape:\n&#34;, df.shape)
+
+&#34;&#34;&#34;
+Data shape:
+ (3, 5)
+&#34;&#34;&#34;
+</code></pre><p>用 <code>df.head()</code> 可顯示前幾筆資料，可指定筆數，預設為5。</p>
+<pre tabindex="0"><code>print(&#34;\nFirst 2 rows:\n&#34;, df.head(2))
+
+&#34;&#34;&#34;
+First 2 rows:
+     Name    Class  Math  English  Science
+0  Alice  Class A    90       88     85.0
+1    Bob  Class B    85       92     79.0
+&#34;&#34;&#34;
+</code></pre><p>用 <code>df.columns</code> 可查看欄位名稱（column labels）。</p>
+<pre tabindex="0"><code>print(&#34;\nData columns:\n&#34;, df.columns)
+
+&#34;&#34;&#34;
+Data columns:
+ Index([&#39;Name&#39;, &#39;Class&#39;, &#39;Math&#39;, &#39;English&#39;, &#39;Science&#39;], dtype=&#39;object&#39;)
+&#34;&#34;&#34;
+</code></pre><p>用 <code>df.describe()</code> 可顯示資料的統計摘要（僅限數值欄位）。</p>
+<pre tabindex="0"><code>print(&#34;\nData describe:\n&#34;, df.describe())
+
+&#34;&#34;&#34;
+Data describe:
+             Math    English    Science
+count   3.000000   3.000000   2.000000
+mean   84.333333  86.666667  82.000000
+std     6.027714   6.110101   4.242641
+min    78.000000  80.000000  79.000000
+25%    81.500000  84.000000  80.500000
+50%    85.000000  88.000000  82.000000
+75%    87.500000  90.000000  83.500000
+max    90.000000  92.000000  85.000000
+&#34;&#34;&#34;
+</code></pre><p>用 <code>df.info()</code> 可查看資料總覽（欄位型別、缺值狀況），因為他會直接輸出，就不另外寫print了。</p>
+<pre tabindex="0"><code>print(&#34;\nData information:&#34;)
+df.info()
+
+&#34;&#34;&#34;
+&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 3 entries, 0 to 2
+Data columns (total 5 columns):
+ #   Column   Non-Null Count  Dtype  
+---  ------   --------------  -----  
+ 0   Name     3 non-null      object 
+ 1   Class    3 non-null      object 
+ 2   Math     3 non-null      int64  
+ 3   English  3 non-null      int64  
+ 4   Science  2 non-null      float64
+dtypes: float64(1), int64(2), object(2)
+memory usage: 252.0+ bytes
+&#34;&#34;&#34;
+</code></pre></section>
+
+  <nav
+    class="mt-24 flex overflow-hidden rounded-xl bg-black/[3%] text-lg leading-[1.2]! *:flex *:w-1/2 *:items-center *:p-5 *:font-medium *:no-underline dark:bg-white/[8%] [&>*:hover]:bg-black/[2%] dark:[&>*:hover]:bg-white/[3%]"
+  ><a
+      class="justify-end pl-3 ltr:ml-auto rtl:mr-auto"
+      href="https://henry43171.github.io/posts/numpy_practice/"
+      ><span>Numpy 練習紀錄</span><span class="ltr:ml-1.5 rtl:mr-1.5">→</span></a
+    ></nav></article></main><footer
+  class="mx-auto flex h-[4.5rem] max-w-(--w) items-center px-8 text-xs tracking-wider uppercase opacity-60"
+>
+  <div class="mr-auto">&copy;2025
+    <a class="link" href="https://henry43171.github.io/">Henry 的筆記本</a></div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >powered by hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >hugo-paper</a
+  >
+</footer>
+</body>
+</html>
