@@ -26,6 +26,7 @@
   <meta name="theme-color" />
 
   <meta name="description" content="Pandas 練習
+基本語法
 基本pandas語法練習，先宣告最基本的資料型態dataframe，這邊有刻意留一個None，方便後面檢查資料用。
 import pandas as pd
 
@@ -75,15 +76,15 @@ All data:
 
   <meta name="generator" content="Hugo 0.146.5">
   <meta itemprop="name" content="Pandas 練習紀錄">
-  <meta itemprop="description" content="Pandas 練習 基本pandas語法練習，先宣告最基本的資料型態dataframe，這邊有刻意留一個None，方便後面檢查資料用。
+  <meta itemprop="description" content="Pandas 練習 基本語法 基本pandas語法練習，先宣告最基本的資料型態dataframe，這邊有刻意留一個None，方便後面檢查資料用。
 import pandas as pddata = {&#34;Name&#34;: [&#34;Alice&#34;, &#34;Bob&#34;, &#34;Charlie&#34;],&#34;Class&#34;: [&#34;Class A&#34;, &#34;Class B&#34;, &#34;Class A&#34;],&#34;Math&#34;: [90, 85, 78],&#34;English&#34;: [88, 92, 80],&#34;Science&#34;: [85, 79, None]} 建立 DataFrame 物件並印出全部資料，觀察整體格式與資料型別。
 df = pd.DataFrame(data)print(&#34;\nAll data:\n&#34;, df)&#34;&#34;&#34;All data:Name Class Math English Science0 Alice Class A 90 88 85.01 Bob Class B 85 92 79.02 Charlie Class A 78 80 NaN&#34;&#34;&#34; 可以用不同的語法，來取得不同的資料格式，像是 df.shape，可以確認資料表的維度（列數、欄數）。">
   <meta itemprop="datePublished" content="2025-05-06T15:07:00+08:00">
   <meta itemprop="dateModified" content="2025-05-06T15:07:00+08:00">
-  <meta itemprop="wordCount" content="240"><meta property="og:url" content="https://henry43171.github.io/posts/pandas_practice/">
+  <meta itemprop="wordCount" content="382"><meta property="og:url" content="https://henry43171.github.io/posts/pandas_practice/">
   <meta property="og:site_name" content="Henry 的筆記本">
   <meta property="og:title" content="Pandas 練習紀錄">
-  <meta property="og:description" content="Pandas 練習 基本pandas語法練習，先宣告最基本的資料型態dataframe，這邊有刻意留一個None，方便後面檢查資料用。
+  <meta property="og:description" content="Pandas 練習 基本語法 基本pandas語法練習，先宣告最基本的資料型態dataframe，這邊有刻意留一個None，方便後面檢查資料用。
 import pandas as pddata = {&#34;Name&#34;: [&#34;Alice&#34;, &#34;Bob&#34;, &#34;Charlie&#34;],&#34;Class&#34;: [&#34;Class A&#34;, &#34;Class B&#34;, &#34;Class A&#34;],&#34;Math&#34;: [90, 85, 78],&#34;English&#34;: [88, 92, 80],&#34;Science&#34;: [85, 79, None]} 建立 DataFrame 物件並印出全部資料，觀察整體格式與資料型別。
 df = pd.DataFrame(data)print(&#34;\nAll data:\n&#34;, df)&#34;&#34;&#34;All data:Name Class Math English Science0 Alice Class A 90 88 85.01 Bob Class B 85 92 79.02 Charlie Class A 78 80 NaN&#34;&#34;&#34; 可以用不同的語法，來取得不同的資料格式，像是 df.shape，可以確認資料表的維度（列數、欄數）。">
   <meta property="og:locale" content="zh_tw">
@@ -94,7 +95,7 @@ df = pd.DataFrame(data)print(&#34;\nAll data:\n&#34;, df)&#34;&#34;&#34;All d
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Pandas 練習紀錄">
-  <meta name="twitter:description" content="Pandas 練習 基本pandas語法練習，先宣告最基本的資料型態dataframe，這邊有刻意留一個None，方便後面檢查資料用。
+  <meta name="twitter:description" content="Pandas 練習 基本語法 基本pandas語法練習，先宣告最基本的資料型態dataframe，這邊有刻意留一個None，方便後面檢查資料用。
 import pandas as pddata = {&#34;Name&#34;: [&#34;Alice&#34;, &#34;Bob&#34;, &#34;Charlie&#34;],&#34;Class&#34;: [&#34;Class A&#34;, &#34;Class B&#34;, &#34;Class A&#34;],&#34;Math&#34;: [90, 85, 78],&#34;English&#34;: [88, 92, 80],&#34;Science&#34;: [85, 79, None]} 建立 DataFrame 物件並印出全部資料，觀察整體格式與資料型別。
 df = pd.DataFrame(data)print(&#34;\nAll data:\n&#34;, df)&#34;&#34;&#34;All data:Name Class Math English Science0 Alice Class A 90 88 85.01 Bob Class B 85 92 79.02 Charlie Class A 78 80 NaN&#34;&#34;&#34; 可以用不同的語法，來取得不同的資料格式，像是 df.shape，可以確認資料表的維度（列數、欄數）。">
 
@@ -179,6 +180,7 @@ df = pd.DataFrame(data)print(&#34;\nAll data:\n&#34;, df)&#34;&#34;&#34;All d
     <h1 class="my-0! pb-2.5">Pandas 練習紀錄</h1><div class="text-xs antialiased opacity-60"><time>May 6, 2025</time></div></header>
 
   <section><h1 id="pandas-練習">Pandas 練習</h1>
+<h2 id="基本語法">基本語法</h2>
 <p>基本pandas語法練習，先宣告最基本的資料型態dataframe，這邊有刻意留一個None，方便後面檢查資料用。</p>
 <pre tabindex="0"><code>import pandas as pd
 
@@ -255,6 +257,47 @@ Data columns (total 5 columns):
  4   Science  2 non-null      float64
 dtypes: float64(1), int64(2), object(2)
 memory usage: 252.0+ bytes
+&#34;&#34;&#34;
+</code></pre><h2 id="資料篩選">資料篩選</h2>
+<p>Pandas 支援類似 Excel 的邏輯條件過濾功能，可以透過布林索引（Boolean Indexing）快速找到符合條件的資料。</p>
+<p>先來看看一個簡單的條件式，會回傳一個布林值的 Series，這個結果代表只有第三筆資料（索引值為 2）符合條件，英文成績小於等於 85。</p>
+<pre tabindex="0"><code>print(df[&#34;English&#34;] &lt;= 85)
+
+&#34;&#34;&#34;
+0    False
+1    False
+2     True
+&#34;&#34;&#34;
+</code></pre><h3 id="篩選英文成績小於等於-85-的學生">篩選英文成績小於等於 85 的學生</h3>
+<p>可以將這個布林條件直接套用在 DataFrame 上，過濾出符合的列：</p>
+<pre tabindex="0"><code># 篩選英文成績小於等於 85 的學生
+print(&#34;\nEnglish &lt;= 85:\n&#34;, df[df[&#34;English&#34;] &lt;= 85])
+
+&#34;&#34;&#34;
+English &lt;= 85:
+       Name    Class  Math  English  Science
+2  Charlie  Class A    78       80      NaN
+&#34;&#34;&#34;
+</code></pre><h3 id="篩選班級為-class-a-的學生">篩選班級為 Class A 的學生</h3>
+<p>同理，也可以用文字欄位做條件篩選，像是找出「Class A」的學生：</p>
+<pre tabindex="0"><code># 篩選班級為 Class A 的學生
+print(&#34;\nClass A only:\n&#34;, df[df[&#34;Class&#34;] == &#34;Class A&#34;])
+
+&#34;&#34;&#34;
+Class A only:
+       Name    Class  Math  English  Science
+0    Alice  Class A    90       88     85.0
+2  Charlie  Class A    78       80      NaN
+&#34;&#34;&#34;
+</code></pre><h3 id="多條件篩選">多條件篩選</h3>
+<p>若要同時滿足多個條件，必須用 <code>&amp;</code> 搭配括號來包住每個條件，否則容易出錯。以下例子會篩選出「Class A」中自然成績大於 80 的學生：</p>
+<pre tabindex="0"><code># 同時滿足多個條件（使用 &amp; 和括號）
+print(&#34;\nClass A and Science &gt; 80:\n&#34;, df[(df[&#34;Class&#34;] == &#34;Class A&#34;) &amp; (df[&#34;Science&#34;] &gt; 80)])
+
+&#34;&#34;&#34;
+Class A and Science &gt; 80:
+     Name    Class  Math  English  Science
+0  Alice  Class A    90       88     85.0
 &#34;&#34;&#34;
 </code></pre></section>
 
