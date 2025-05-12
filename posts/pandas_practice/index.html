@@ -89,7 +89,7 @@ df = pd.DataFrame(data) print(&#34;\nAll data:\n&#34;, df) &#34;&#34;&#34; All d
 print(&#34;\nData shape:\n&#34;, df.shape) &#34;&#34;&#34; Data shape: (3, 5) &#34;&#34;&#34; 用 df.head() 可顯示前幾筆資料，可指定筆數，預設為5。">
   <meta itemprop="datePublished" content="2025-05-06T15:07:00+08:00">
   <meta itemprop="dateModified" content="2025-05-06T15:07:00+08:00">
-  <meta itemprop="wordCount" content="2340"><meta property="og:url" content="https://henry43171.github.io/posts/pandas_practice/">
+  <meta itemprop="wordCount" content="2588"><meta property="og:url" content="https://henry43171.github.io/posts/pandas_practice/">
   <meta property="og:site_name" content="Henry 的筆記本">
   <meta property="og:title" content="Pandas 練習紀錄">
   <meta property="og:description" content="Pandas 練習 基本語法 基本pandas語法練習，先宣告最基本的資料型態dataframe，這邊有刻意留一個None，方便後面檢查資料用。
@@ -720,6 +720,59 @@ print(&#34;\nData shape:\n&#34;, df.shape) &#34;&#34;&#34; Data shape: (3, 5) &#
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">7   Hannah  Class B    91       86     80.0
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">8      Ian  Class C    76       81     78.0
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">9    Julia  Class A    89       87     89.0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</span></span></code></pre></div><h2 id="讀取檔案">讀取檔案</h2>
+<p>在實際處理資料時，我們通常會從外部檔案讀取資料，例如 <code>.csv</code> 或 <code>.json</code>。Pandas 提供了多種方便的函式來幫助我們讀取這些常見格式。</p>
+<p>以下介紹兩種常用的讀取方式：</p>
+<ul>
+<li>pd.read_csv()：用來讀取 CSV 檔案，是最常見的資料格式之一。</li>
+<li>pd.read_json()：用來讀取 JSON 格式的資料，也非常常見於 API 回傳的資料內容。</li>
+</ul>
+<p>讀取後會得到一個 DataFrame，我們可以用 <code>df.head()</code> 來查看前幾筆資料內容，確認格式是否正確。</p>
+<p>下面是實際讀入 CSV 的範例。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;./pandas_practice/data.csv&#34;</span>)  <span style="color:#75715e"># 檔名可以是相對路徑或絕對路徑</span>
+</span></span><span style="display:flex;"><span>print(df)
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      Name    Class  Math  English  Science
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">0    Alice  Class A    90       88     85.0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">1      Bob  Class B    85       92     79.0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">2  Charlie  Class C    78       80      NaN
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">3    Diana  Class A    92       85     90.0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">4    Ethan  Class B    88       90     84.0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">5    Fiona  Class C    95       89     91.0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">6   George  Class A    70       75     72.0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">7   Hannah  Class B    83       87     85.0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">8      Ian  Class C    60       65     62.0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">9    Julia  Class A    88       90     89.0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</span></span></code></pre></div><p><code>df.head()</code> 預設是載入5筆資料，也可以依據需求來顯示不同數量的資料。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(df<span style="color:#f92672">.</span>head())  <span style="color:#75715e"># 顯示前 5 筆資料</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># print(df.head(3))  # 顯示前 3 筆資料</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      Name    Class  Math  English  Science
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">0    Alice  Class A    90       88     85.0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">1      Bob  Class B    85       92     79.0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">2  Charlie  Class C    78       80      NaN
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">3    Diana  Class A    92       85     90.0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">4    Ethan  Class B    88       90     84.0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</span></span></code></pre></div><p>下面是實際讀入 JSON 的範例。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_json(<span style="color:#e6db74">&#34;./pandas_practice/data.json&#34;</span>)
+</span></span><span style="display:flex;"><span>print(df)
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      Name    Class  Math  English  Science
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">0    Alice  Class A    90       88     85.0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">1      Bob  Class B    85       92     79.0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">2  Charlie  Class C    78       80      NaN
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">3    Diana  Class A    92       85     90.0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">4    Ethan  Class B    88       90     84.0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">5    Fiona  Class C    91       89     88.0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">6   George  Class A    76       81     70.0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">7   Hannah  Class C    83       87     82.0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">8      Ian  Class B    89       86     85.0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">9    Julia  Class A    80       79     76.0
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;</span>
 </span></span></code></pre></div></section>
 
