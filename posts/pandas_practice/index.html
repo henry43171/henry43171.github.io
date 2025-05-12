@@ -81,7 +81,7 @@ import pandas as pddata = {&#34;Name&#34;: [&#34;Alice&#34;, &#34;Bob&#34;, &#
 df = pd.DataFrame(data)print(&#34;\nAll data:\n&#34;, df)&#34;&#34;&#34;All data:Name Class Math English Science0 Alice Class A 90 88 85.01 Bob Class B 85 92 79.02 Charlie Class A 78 80 NaN&#34;&#34;&#34; 可以用不同的語法，來取得不同的資料格式，像是 df.shape，可以確認資料表的維度（列數、欄數）。">
   <meta itemprop="datePublished" content="2025-05-06T15:07:00+08:00">
   <meta itemprop="dateModified" content="2025-05-06T15:07:00+08:00">
-  <meta itemprop="wordCount" content="1565"><meta property="og:url" content="https://henry43171.github.io/posts/pandas_practice/">
+  <meta itemprop="wordCount" content="2340"><meta property="og:url" content="https://henry43171.github.io/posts/pandas_practice/">
   <meta property="og:site_name" content="Henry 的筆記本">
   <meta property="og:title" content="Pandas 練習紀錄">
   <meta property="og:description" content="Pandas 練習 基本語法 基本pandas語法練習，先宣告最基本的資料型態dataframe，這邊有刻意留一個None，方便後面檢查資料用。
@@ -257,6 +257,181 @@ Data columns (total 5 columns):
  4   Science  2 non-null      float64
 dtypes: float64(1), int64(2), object(2)
 memory usage: 252.0+ bytes
+&#34;&#34;&#34;
+</code></pre><h2 id="欄位操作">欄位操作</h2>
+<p>先宣告基本資料。</p>
+<pre tabindex="0"><code>import pandas as pd
+
+data_expand = {
+    &#34;Name&#34;: [&#34;Alice&#34;, &#34;Bob&#34;, &#34;Charlie&#34;, &#34;Diana&#34;, &#34;Ethan&#34;],
+    &#34;Class&#34;: [&#34;Class A&#34;, &#34;Class B&#34;, &#34;Class C&#34;, &#34;Class A&#34;, &#34;Class B&#34;],
+    &#34;Math&#34;: [90, 85, 78, 92, 88],
+    &#34;English&#34;: [88, 92, 80, 85, 90],
+    &#34;Science&#34;: [85, 79, None, 90, 84]
+}
+
+df = pd.DataFrame(data_expand)
+print(&#34;\n&#34; + &#34;--&#34;*20 + &#34;印出全資料&#34; + &#34;--&#34;*20)
+print(&#34;\nAll expand data:\n&#34;, df)
+&#34;&#34;&#34;
+All expand data:
+       Name    Class  Math  English  Science
+0    Alice  Class A    90       88     85.0
+1      Bob  Class B    85       92     79.0
+2  Charlie  Class C    78       80      NaN
+3    Diana  Class A    92       85     90.0
+4    Ethan  Class B    88       90     84.0
+5    Fiona  Class C    79       77     82.0
+6   George  Class A    84       83      NaN
+7   Hannah  Class B    91       86     80.0
+8      Ian  Class C    76       81     78.0
+9    Julia  Class A    89       87     89.0
+&#34;&#34;&#34;
+</code></pre><h3 id="選取欄位和重新命名">選取欄位和重新命名</h3>
+<p>可選取多組欄位。</p>
+<pre tabindex="0"><code># 選取欄位與重新命名
+print(&#34;\n選取欄位&#34;)
+print(df[[&#34;Math&#34;, &#34;Science&#34;]])
+&#34;&#34;&#34;
+   Math  Science
+0    90     85.0
+1    85     79.0
+2    78      NaN
+3    92     90.0
+4    88     84.0
+&#34;&#34;&#34;
+</code></pre><p>可將欄位重新命名。</p>
+<pre tabindex="0"><code>print(&#34;\n重新命名&#34;)
+print(df.rename(columns={&#34;Math&#34;: &#34;Mathematics&#34;}))
+&#34;&#34;&#34;
+      Name    Class  Mathematics  English  Science
+0    Alice  Class A           90       88     85.0
+1      Bob  Class B           85       92     79.0
+2  Charlie  Class C           78       80      NaN
+3    Diana  Class A           92       85     90.0
+4    Ethan  Class B           88       90     84.0
+&#34;&#34;&#34;
+</code></pre><h3 id="新增欄位與計算">新增欄位與計算</h3>
+<p>新增欄位，可計算欄位結果。</p>
+<h4 id="基本加總">基本加總</h4>
+<p>有時候我們需要根據多個欄位的數值，算出總和或平均，這時就可以「開一條新欄」來放計算結果。</p>
+<p>這種寫法是最直接的「欄與欄相加」，如果所有欄位都有值，沒問題；但一旦遇到 NaN（缺失值），結果就會整組報 NaN，像 Charlie 就「一分都拿不到」，因為他缺考了一科。</p>
+<pre tabindex="0"><code># 新增欄位與計算欄位
+print(&#34;\n新增欄位與計算欄位&#34;)
+# 建立加總欄：
+df[&#34;Total&#34;] = df[&#34;Math&#34;] + df[&#34;English&#34;] + df[&#34;Science&#34;]
+print(df)
+
+&#34;&#34;&#34;
+新增欄位與計算欄位
+      Name    Class  Math  English  Science  Total
+0    Alice  Class A    90       88     85.0  263.0
+1      Bob  Class B    85       92     79.0  256.0
+2  Charlie  Class C    78       80      NaN    NaN
+3    Diana  Class A    92       85     90.0  267.0
+4    Ethan  Class B    88       90     84.0  262.0
+&#34;&#34;&#34;
+</code></pre><h4 id="寬容加總">寬容加總</h4>
+<p>這種寫法比較人性化，它會自動忽略 NaN 的欄位，只對有數值的欄位做加總。就像 Charlie 缺考一科，還是能加總剩下的兩科。</p>
+<pre tabindex="0"><code>print(&#34;\n新增欄位與計算欄位_2&#34;)
+score_columns = [&#34;Math&#34;, &#34;English&#34;, &#34;Science&#34;]
+df[&#34;Total_2&#34;] = df[score_columns].sum(axis=1)
+print(df)
+&#34;&#34;&#34;
+新增欄位與計算欄位_2
+      Name    Class  Math  English  Science  Total  Total_2
+0    Alice  Class A    90       88     85.0  263.0    263.0
+1      Bob  Class B    85       92     79.0  256.0    256.0
+2  Charlie  Class C    78       80      NaN    NaN    158.0
+3    Diana  Class A    92       85     90.0  267.0    267.0
+4    Ethan  Class B    88       90     84.0  262.0    262.0
+&#34;&#34;&#34;
+</code></pre><h4 id="嚴格加總">嚴格加總</h4>
+<p>加入 min_count 機制。
+如果要實現「只要缺一科就不算總分」的資料。min_count 可以設定至少幾個值要存在，才會進行加總；不滿足就直接給你 NaN。</p>
+<pre tabindex="0"><code>print(&#34;\n新增欄位與計算欄位_3&#34;)
+df[&#34;Total_strict&#34;] = df[score_columns].sum(axis=1, min_count=len(score_columns))
+print(df)
+&#34;&#34;&#34;
+新增欄位與計算欄位_3
+      Name    Class  Math  English  Science  Total  Total_2  Total_strict
+0    Alice  Class A    90       88     85.0  263.0    263.0         263.0
+1      Bob  Class B    85       92     79.0  256.0    256.0         256.0
+2  Charlie  Class C    78       80      NaN    NaN    158.0           NaN
+3    Diana  Class A    92       85     90.0  267.0    267.0         267.0
+4    Ethan  Class B    88       90     84.0  262.0    262.0         262.0
+&#34;&#34;&#34;
+</code></pre><h4 id="建立平均">建立平均</h4>
+<p>透過 <code>.mean(axis=1)</code> 可以針對每一列（row）計算多個欄位的平均值。這在需要針對多個特徵做統計時非常常見，不論是處理測試成績、銷售數據，還是感測器資料，都能派上用場。</p>
+<ul>
+<li>第一種直接指定欄位名稱</li>
+<li>第二種使用先前定義的欄位列表 score_columns，讓程式碼更有彈性與可維護性。</li>
+</ul>
+<pre tabindex="0"><code># 建立平均欄：
+print(&#34;\n平均欄位&#34;)
+df[&#34;Average&#34;] = df[[&#34;Math&#34;, &#34;English&#34;, &#34;Science&#34;]].mean(axis=1)
+df[&#34;Average_2&#34;] = df[score_columns].mean(axis=1)
+print(df)
+&#34;&#34;&#34;
+平均欄位
+      Name    Class  Math  English  Science  Total  Total_2  Total_strict    Average  Average_2
+0    Alice  Class A    90       88     85.0  263.0    263.0         263.0  87.666667  87.666667
+1      Bob  Class B    85       92     79.0  256.0    256.0         256.0  85.333333  85.333333
+2  Charlie  Class C    78       80      NaN    NaN    158.0           NaN  79.000000  79.000000
+3    Diana  Class A    92       85     90.0  267.0    267.0         267.0  89.000000  89.000000
+4    Ethan  Class B    88       90     84.0  262.0    262.0         262.0  87.333333  87.333333
+&#34;&#34;&#34;
+</code></pre><h3 id="刪除欄位">刪除欄位</h3>
+<p>資料整理過程中，常會出現一些「中途產物」——像是用來驗證語法的欄位、測試不同參數的欄位等。當這些欄位不再需要時，就可以使用 <code>drop()</code> 來清理。</p>
+<pre tabindex="0"><code># 刪除欄位
+print(&#34;\n刪除欄位&#34;)
+df = df.drop(columns=[&#34;Total_2&#34;, &#34;Total_strict&#34;, &#34;Average_2&#34;])
+print(df)
+&#34;&#34;&#34;
+      Name    Class  Math  English  Science  Total    Average
+0    Alice  Class A    90       88     85.0  263.0  87.666667
+1      Bob  Class B    85       92     79.0  256.0  85.333333
+2  Charlie  Class C    78       80      NaN    NaN  79.000000
+3    Diana  Class A    92       85     90.0  267.0  89.000000
+4    Ethan  Class B    88       90     84.0  262.0  87.333333
+&#34;&#34;&#34;
+</code></pre><h3 id="條件篩選與邏輯運算">條件篩選與邏輯運算</h3>
+<p>當我們想根據特定條件過濾資料時，可以使用布林運算符（例如 &amp;, |, ~）來進行條件組合。
+例如下面這段程式碼就是篩選出「Math &gt; 80 且 English &gt; 85」的資料列：</p>
+<pre tabindex="0"><code># 條件篩選與邏輯運算
+print(&#34;\n條件篩選與邏輯運算&#34;)
+print(df[(df[&#34;Math&#34;] &gt; 80) &amp; (df[&#34;English&#34;] &gt; 85)])
+&#34;&#34;&#34;
+    Name    Class  Math  English  Science  Total    Average
+0  Alice  Class A    90       88     85.0  263.0  87.666667
+1    Bob  Class B    85       92     79.0  256.0  85.333333
+4  Ethan  Class B    88       90     84.0  262.0  87.333333
+&#34;&#34;&#34;
+</code></pre><h3 id="排序與重排">排序與重排</h3>
+<p><code>sort_values()</code> 可以讓你依照指定欄位進行排序，<code>ascending=False</code> 則是設定為降冪排列。</p>
+<pre tabindex="0"><code># 排序與重排
+print(&#34;\n排序與重排 &#39;df.sort_values(by=&#39;Math&#39;, ascending=False)&#39;&#34;)
+df = df.sort_values(by=&#34;Math&#34;, ascending=False)
+print(df)
+&#34;&#34;&#34;
+      Name    Class  Math  English  Science  Total    Average
+3    Diana  Class A    92       85     90.0  267.0  89.000000
+0    Alice  Class A    90       88     85.0  263.0  87.666667
+4    Ethan  Class B    88       90     84.0  262.0  87.333333
+1      Bob  Class B    85       92     79.0  256.0  85.333333
+2  Charlie  Class C    78       80      NaN    NaN  79.000000
+&#34;&#34;&#34;
+</code></pre><p>排序後，原本的索引（index）會跟著資料順序跑掉，如果不重新編排的話，可能會造成後續處理混亂。這時就可以使用 <code>df.reset_index(drop=True)</code> 重新設定索引，這樣會重新設定索引，並移除原本的索引欄位，讓表格更乾淨整齊。</p>
+<pre tabindex="0"><code>print(&#34;\n排序與重排 &#39;df.reset_index(drop=True)&#39;&#34;)
+df = df.reset_index(drop=True)
+print(df)
+&#34;&#34;&#34;
+      Name    Class  Math  English  Science  Total    Average
+0    Diana  Class A    92       85     90.0  267.0  89.000000
+1    Alice  Class A    90       88     85.0  263.0  87.666667
+2    Ethan  Class B    88       90     84.0  262.0  87.333333
+3      Bob  Class B    85       92     79.0  256.0  85.333333
+4  Charlie  Class C    78       80      NaN    NaN  79.000000
 &#34;&#34;&#34;
 </code></pre><h2 id="資料篩選">資料篩選</h2>
 <p>Pandas 支援類似 Excel 的邏輯條件過濾功能，可以透過布林索引（Boolean Indexing）快速找到符合條件的資料。</p>
