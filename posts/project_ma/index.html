@@ -11,7 +11,7 @@
   style="--bg:#faf8f1"
   lang="zh-tw"
   dir="ltr"
-><head>
+><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta
@@ -81,10 +81,10 @@ data_visulize(title = &#34;Count of Each URL Type&#34;,
               ylabel = &#34;Count&#34;, 
               png_name = &#34;type_counts.png&#34;)
 " />
-  <meta name="author" content="Henry Automates" /><link rel="preload stylesheet" as="style" href="https://henry43171.github.io/main.min.css" />
+  <meta name="author" content="Henry Automates" /><link rel="preload stylesheet" as="style" href="http://localhost:1313/main.min.css" />
 
   
-  <link rel="preload" as="image" href="https://henry43171.github.io/theme.png" />
+  <link rel="preload" as="image" href="http://localhost:1313/theme.png" />
 
   
 
@@ -92,58 +92,21 @@ data_visulize(title = &#34;Count of Each URL Type&#34;,
 
   <script
     defer
-    src="https://henry43171.github.io/highlight.min.js"
+    src="http://localhost:1313/highlight.min.js"
     onload="hljs.initHighlightingOnLoad();"
   ></script>
 
   
   <link
     rel="icon"
-    href="https://henry43171.github.io/favicon.ico"
+    href="http://localhost:1313/favicon.ico"
   />
   <link
     rel="apple-touch-icon"
-    href="https://henry43171.github.io/apple-touch-icon.png"
+    href="http://localhost:1313/apple-touch-icon.png"
   />
 
   <meta name="generator" content="Hugo 0.146.5">
-  <meta itemprop="name" content="資料分析實作練習 - malicious urls">
-  <meta itemprop="description" content="1. 讀取資料 嘗試使用學到的基本語法來分析.csv檔，先以 malicious urls 惡意網址的資料集來練習，使用 pandas 的 read_csv() 讀取資料，檔案路徑採相對路徑管理：
-資料來源 https://www.kaggle.com/datasets/sid321axn/malicious-urls-dataset
-import pandas as pd df = pd.read_csv(&#34;./data/malicious_phish.csv&#34;) 2. 初步觀察資料內容 為了了解資料基本情況，先用 head() 查看前幾筆資料，並搭配 shape 與 isnull().sum() 檢查欄位結構與缺失值。
-print(&#34;---&#34;*30) print(&#34;First 10 datas&#34;) print(df.head(10)) print(&#34;---&#34;*30) print(&#34;Columns&#34;) print(df.columns) print(&#34;---&#34;*30) print(&#34;Shape&#34;) print(df.shape) # 有幾筆資料、幾個欄位 print(&#34;---&#34;*30) print(&#34;Sum of null&#34;) print(df.isnull().sum()) # 各欄位的缺值（NaN）數量 3. 統計分析：各類型網址數量分布 資料集中的 type 欄位標示了每筆網址的類別，如 phishing、malware 等。我們可以使用 value_counts() 來計算每種類型的數量與比例。
-print(&#34;---&#34;*30) print(&#34;Type&#34;) print(df[&#34;type&#34;].value_counts()) print(&#34;---&#34;*30) print(&#34;Proportion&#34;) print(df[&#34;type&#34;].value_counts(normalize=True)) 4. 視覺化結果 將 type 分類以長條圖方式視覺化，可更直觀地觀察分布情況。
-import matplotlib.pyplot as plt def data_visulize(title, xlabel, ylabel, png_name): # 繪製長條圖 df[&#34;type&#34;].value_counts().plot(kind=&#34;bar&#34;, color=&#39;skyblue&#39;) plt.xticks(rotation=0) # 加標題 plt.title(title) plt.xlabel(xlabel) plt.ylabel(ylabel) # 儲存圖片 plt.tight_layout() plt.savefig(png_name) data_visulize(title = &#34;Count of Each URL Type&#34;, xlabel = &#34;Type&#34;, ylabel = &#34;Count&#34;, png_name = &#34;type_counts.png&#34;)">
-  <meta itemprop="datePublished" content="2025-07-11T03:00:00+08:00">
-  <meta itemprop="dateModified" content="2025-07-11T03:00:00+08:00">
-  <meta itemprop="wordCount" content="117">
-  <meta itemprop="keywords" content="資料整理,基本語法"><meta property="og:url" content="https://henry43171.github.io/posts/project_ma/">
-  <meta property="og:site_name" content="Henry Automates">
-  <meta property="og:title" content="資料分析實作練習 - malicious urls">
-  <meta property="og:description" content="1. 讀取資料 嘗試使用學到的基本語法來分析.csv檔，先以 malicious urls 惡意網址的資料集來練習，使用 pandas 的 read_csv() 讀取資料，檔案路徑採相對路徑管理：
-資料來源 https://www.kaggle.com/datasets/sid321axn/malicious-urls-dataset
-import pandas as pd df = pd.read_csv(&#34;./data/malicious_phish.csv&#34;) 2. 初步觀察資料內容 為了了解資料基本情況，先用 head() 查看前幾筆資料，並搭配 shape 與 isnull().sum() 檢查欄位結構與缺失值。
-print(&#34;---&#34;*30) print(&#34;First 10 datas&#34;) print(df.head(10)) print(&#34;---&#34;*30) print(&#34;Columns&#34;) print(df.columns) print(&#34;---&#34;*30) print(&#34;Shape&#34;) print(df.shape) # 有幾筆資料、幾個欄位 print(&#34;---&#34;*30) print(&#34;Sum of null&#34;) print(df.isnull().sum()) # 各欄位的缺值（NaN）數量 3. 統計分析：各類型網址數量分布 資料集中的 type 欄位標示了每筆網址的類別，如 phishing、malware 等。我們可以使用 value_counts() 來計算每種類型的數量與比例。
-print(&#34;---&#34;*30) print(&#34;Type&#34;) print(df[&#34;type&#34;].value_counts()) print(&#34;---&#34;*30) print(&#34;Proportion&#34;) print(df[&#34;type&#34;].value_counts(normalize=True)) 4. 視覺化結果 將 type 分類以長條圖方式視覺化，可更直觀地觀察分布情況。
-import matplotlib.pyplot as plt def data_visulize(title, xlabel, ylabel, png_name): # 繪製長條圖 df[&#34;type&#34;].value_counts().plot(kind=&#34;bar&#34;, color=&#39;skyblue&#39;) plt.xticks(rotation=0) # 加標題 plt.title(title) plt.xlabel(xlabel) plt.ylabel(ylabel) # 儲存圖片 plt.tight_layout() plt.savefig(png_name) data_visulize(title = &#34;Count of Each URL Type&#34;, xlabel = &#34;Type&#34;, ylabel = &#34;Count&#34;, png_name = &#34;type_counts.png&#34;)">
-  <meta property="og:locale" content="zh_tw">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-07-11T03:00:00+08:00">
-    <meta property="article:modified_time" content="2025-07-11T03:00:00+08:00">
-    <meta property="article:tag" content="資料整理">
-    <meta property="article:tag" content="基本語法">
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="資料分析實作練習 - malicious urls">
-  <meta name="twitter:description" content="1. 讀取資料 嘗試使用學到的基本語法來分析.csv檔，先以 malicious urls 惡意網址的資料集來練習，使用 pandas 的 read_csv() 讀取資料，檔案路徑採相對路徑管理：
-資料來源 https://www.kaggle.com/datasets/sid321axn/malicious-urls-dataset
-import pandas as pd df = pd.read_csv(&#34;./data/malicious_phish.csv&#34;) 2. 初步觀察資料內容 為了了解資料基本情況，先用 head() 查看前幾筆資料，並搭配 shape 與 isnull().sum() 檢查欄位結構與缺失值。
-print(&#34;---&#34;*30) print(&#34;First 10 datas&#34;) print(df.head(10)) print(&#34;---&#34;*30) print(&#34;Columns&#34;) print(df.columns) print(&#34;---&#34;*30) print(&#34;Shape&#34;) print(df.shape) # 有幾筆資料、幾個欄位 print(&#34;---&#34;*30) print(&#34;Sum of null&#34;) print(df.isnull().sum()) # 各欄位的缺值（NaN）數量 3. 統計分析：各類型網址數量分布 資料集中的 type 欄位標示了每筆網址的類別，如 phishing、malware 等。我們可以使用 value_counts() 來計算每種類型的數量與比例。
-print(&#34;---&#34;*30) print(&#34;Type&#34;) print(df[&#34;type&#34;].value_counts()) print(&#34;---&#34;*30) print(&#34;Proportion&#34;) print(df[&#34;type&#34;].value_counts(normalize=True)) 4. 視覺化結果 將 type 分類以長條圖方式視覺化，可更直觀地觀察分布情況。
-import matplotlib.pyplot as plt def data_visulize(title, xlabel, ylabel, png_name): # 繪製長條圖 df[&#34;type&#34;].value_counts().plot(kind=&#34;bar&#34;, color=&#39;skyblue&#39;) plt.xticks(rotation=0) # 加標題 plt.title(title) plt.xlabel(xlabel) plt.ylabel(ylabel) # 儲存圖片 plt.tight_layout() plt.savefig(png_name) data_visulize(title = &#34;Count of Each URL Type&#34;, xlabel = &#34;Type&#34;, ylabel = &#34;Count&#34;, png_name = &#34;type_counts.png&#34;)">
-
-  <link rel="canonical" href="https://henry43171.github.io/posts/project_ma/" />
 </head>
 <body
     class="bg-(--bg) text-black antialiased duration-200 ease-out [-webkit-tap-highlight-color:transparent] dark:text-white"
@@ -153,7 +116,7 @@ import matplotlib.pyplot as plt def data_visulize(title, xlabel, ylabel, png_nam
   <div class="relative z-50 flex items-center ltr:mr-auto rtl:ml-auto">
     <a
       class="-translate-y-[1px] text-2xl font-medium"
-      href="https://henry43171.github.io/"
+      href="http://localhost:1313/"
       >Henry Automates</a
     >
     <div
@@ -291,25 +254,25 @@ import matplotlib.pyplot as plt def data_visulize(title, xlabel, ylabel, png_nam
 
   <footer class="mt-12 flex flex-wrap"><a
       class="mb-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] ltr:mr-1.5 rtl:ml-1.5 dark:bg-white/[8%] dark:hover:bg-white/[12%]"
-      href="https://henry43171.github.io/tags/%E8%B3%87%E6%96%99%E6%95%B4%E7%90%86"
+      href="http://localhost:1313/tags/%E8%B3%87%E6%96%99%E6%95%B4%E7%90%86"
       >資料整理</a
     ><a
       class="mb-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] ltr:mr-1.5 rtl:ml-1.5 dark:bg-white/[8%] dark:hover:bg-white/[12%]"
-      href="https://henry43171.github.io/tags/%E5%9F%BA%E6%9C%AC%E8%AA%9E%E6%B3%95"
+      href="http://localhost:1313/tags/%E5%9F%BA%E6%9C%AC%E8%AA%9E%E6%B3%95"
       >基本語法</a
     ></footer><nav
     class="mt-24 flex overflow-hidden rounded-xl bg-black/[3%] text-lg leading-[1.2]! *:flex *:w-1/2 *:items-center *:p-5 *:font-medium *:no-underline dark:bg-white/[8%] [&>*:hover]:bg-black/[2%] dark:[&>*:hover]:bg-white/[3%]"
-  ><a class="ltr:pr-3 rtl:pl-3" href="https://henry43171.github.io/posts/hotkeytray/"
+  ><a class="ltr:pr-3 rtl:pl-3" href="http://localhost:1313/posts/hotkeytray/"
       ><span class="ltr:mr-1.5 rtl:ml-1.5">←</span><span>截圖工具 HotkeyTray</span></a
     ><a
       class="justify-end pl-3 ltr:ml-auto rtl:mr-auto"
-      href="https://henry43171.github.io/posts/pandas_practice/"
+      href="http://localhost:1313/posts/pandas_practice/"
       ><span>Pandas 練習紀錄</span><span class="ltr:ml-1.5 rtl:mr-1.5">→</span></a
     ></nav></article></main><footer
   class="mx-auto flex h-[4.5rem] max-w-(--w) items-center px-8 text-xs tracking-wider uppercase opacity-60"
 >
   <div class="mr-auto">&copy;2025
-    <a class="link" href="https://henry43171.github.io/">Henry Automates</a></div>
+    <a class="link" href="http://localhost:1313/">Henry Automates</a></div>
   <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
     >powered by hugo️️</a
   >️
